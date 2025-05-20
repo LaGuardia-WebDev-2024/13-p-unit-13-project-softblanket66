@@ -1,47 +1,119 @@
+<!-- Unit 13 Project
+Requirements
+[  ] Two Interactive Drop-down Inputs 
+[  ] Two Different jQuery Animation Methods 
+[  ] Add Five CSS Declarations
+[  ] Include Three Images
+
+Select ONE Additional Feature to Add  
+[ no ] Feature 1 - Google Font
+[ no ] Feature 2 - Upload a Font
+[ no ] Feature 3 - .mouseover() Method
+[ no ] Feature 4 - :hover Feature 
+[ no ] Feature 5 - Add an Additional Interactive Drop-down
+-->
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Challenge: Fancy font families</title>
-        <style>
-        #flinstones {
-            font-family:fantasy;
-        }
-        
-        #jetsons {
-            font-family:cursive;
-        }
-        
-        #addams {
-            font-family:monospace;
-        }
-        </style>
-    </head>
-    <body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Unit 13 Project</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
     
-    <p>Some fun theme songs of well known TV families...</p>
-    
-    <h4>The Flinstones</h4>
-    <p id="flinstones">
-    Meet the Flintstones<br>
-    They're the modern stone age family<br>
-    From the town of Bedrock<br>
-    They're a page right of history</p>
-    
-    <h4>The Jetsons</h4>
-    <p id="jetsons">
-    Meet George Jetson,<br>
-    His Boy Elroy,<br>
-    Daughter Judy,<br>
-    Jane, His wife
-    </p>
+    <img
+         src="https://thumbs.dreamstime.com/b/little-boy-blonde-hair-wear-glasses-wondering-cartoon-character-cute-illustration-91112371.jpg"/>
+    <img
+      id="zootopia-pic"
+      src="https://m.media-amazon.com/images/I/51EqX29+A1L._SL500_.jpg"
+    />
+    <h1 id="zootopia-text">Yes! I love nick and judy!</h1>
 
-    <h4>The Addams Family</h4>
-    <p id="addams">
-    They're creepy and they're kooky,<br>
-    mysterious and spooky<br>
-    They're all together ooky,<br>
-    the Addams Family 
-    </p>
-    </body>
+    <img
+      id="food-pic"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjL-i_FZ7fJ5vjRdCHC08WOy5kJRMoRsiubw&s"
+    />
+
+    <h1 id="food-text">Yes! I love BBQ!!!</h1>
+
+    <h1>Quiz About Me !</h1>
+    <hr />
+    <!-- Movie Question -->
+    <form id="movie-form">
+      <label>
+        🎥 What is my favorite movie?
+        <select id="movie-answer">
+          <option value="movie1">frozen</option>
+          <option value="movie2">smurfs</option>
+          <option value="movie3">zootopia</option>
+          <option value="movie4">cinderalla</option>
+        </select>
+      </label>
+      <button type="submit">Check Movie Answer</button>
+    </form>
+    <div id="movie-result"></div>
+    <hr />
+    <!-- Book Question -->
+    <form id="food-form">
+      <label>
+        🍽️ What is my favorite food?
+        <select id="food-answer">
+          <option value="food1">Steak</option>
+          <option value="food2">Hotpot</option>
+          <option value="food3">BBQ</option>
+          <option value="food4">Hamberger</option>
+        </select>
+      </label>
+      <button type="submit">Check Food Answer</button>
+    </form>
+    <div id="food-result"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+      $("#zootopia-pic").hide();
+      $("#zootopia-text").hide();
+      $("#food-pic").hide();
+      $("#food-text").hide();
+
+      //Movie Question jQuery Code
+      $("#movie-form").on("submit", function (event) {
+        event.preventDefault();
+
+        var $answer = $("#movie-answer");
+        var answer = $answer.val();
+
+        if (answer === "movie3") {
+          $("#movie-result").text("YESSSS!");
+          $("#zootopia-pic").hide();
+          $("#zooropia-text").hide();
+          $("#zootopia-pic").slideDown(1000, function () {
+            $("#zootopia-text").fadeIn();
+          });
+        } else {
+          $("#movie-result").text("Try Again!");
+        }
+      });
+
+      //Book Question jQuery Code
+      $("#food-form").on("submit", function (event) {
+        event.preventDefault();
+
+        var $answer = $("#food-answer");
+        var answer = $answer.val();
+
+        if (answer === "food3") {
+          $("#food-result").text("YESSSS!");
+          $("#food-pic").hide();
+          $("#food-text").hide();
+          $("#food-pic").slideDown(1000, function () {
+            $("#food-text").fadeIn();
+          });
+        } else {
+          $("#food-result").text("Try Again!");
+        }
+      });
+    </script>
+  </body>
+
+  <!--- Taken From Khan Academy HTML/JS: Making webpages interactive with jQuery-->
 </html>
