@@ -1,22 +1,30 @@
 #movie-result {
-  background: rgb(244, 98, 181);
-  border: 5px solid black;
+  background: rgb(255, 227, 224);
+  border: 3px solid pink;
   font-size: 24px;
   height: 160px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
-#book-result {
-  background: rgb(196, 159, 255);
-  border: 5px solid black;
+#food-result {
+  background: rgb(191, 241, 245);
+  border: 3px solid lightblue;
   font-size: 24px;
   height: 160px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
+h1{font-family:monospace;}
+label{font-family:monospace;
+  font-size: 20px;}
 hr {
-  height: 5px;
-  background-color: black;
+  height: 8px;
+  background-color: lightyellow;
 }
+     img{
+        border:5px solid#fddeff;
+        border-radius:30px;
+      }
+  

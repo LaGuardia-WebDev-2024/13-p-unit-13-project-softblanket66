@@ -21,17 +21,33 @@ Select ONE Additional Feature to Add
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Quiz About [Me]</h1>
+    <img
+      src="https://thumbs.dreamstime.com/b/little-boy-blonde-hair-wear-glasses-wondering-cartoon-character-cute-illustration-91112371.jpg"
+    />
+    <img
+      id="zootopia-pic"
+      src="https://m.media-amazon.com/images/I/51EqX29+A1L._SL500_.jpg"
+    />
+    <h1 id="zootopia-text">Yes! I love nick and judy!</h1>
+
+    <img
+      id="food-pic"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjL-i_FZ7fJ5vjRdCHC08WOy5kJRMoRsiubw&s"
+    />
+
+    <h1 id="food-text">Yes! I love BBQ!!!</h1>
+
+    <h1>Quiz About Me !</h1>
     <hr />
     <!-- Movie Question -->
     <form id="movie-form">
       <label>
         🎥 What is my favorite movie?
         <select id="movie-answer">
-          <option value="movie1">movie 1</option>
-          <option value="movie2">movie 2</option>
-          <option value="movie3">movie 3</option>
-          <option value="movie4">movie 4</option>
+          <option value="movie1">frozen</option>
+          <option value="movie2">smurfs</option>
+          <option value="movie3">zootopia</option>
+          <option value="movie4">cinderalla</option>
         </select>
       </label>
       <button type="submit">Check Movie Answer</button>
@@ -39,21 +55,26 @@ Select ONE Additional Feature to Add
     <div id="movie-result"></div>
     <hr />
     <!-- Book Question -->
-    <form id="book-form">
+    <form id="food-form">
       <label>
-        📖 What is my favorite book?
-        <select id="book-answer">
-          <option value="book1">book 1</option>
-          <option value="book2">book 2</option>
-          <option value="book3">book 3</option>
-          <option value="book4">book 4</option>
+        🍽️ What is my favorite food?
+        <select id="food-answer">
+          <option value="food1">Steak</option>
+          <option value="food2">Hotpot</option>
+          <option value="food3">BBQ</option>
+          <option value="food4">Hamberger</option>
         </select>
       </label>
-      <button type="submit">Check Book Answer</button>
+      <button type="submit">Check Food Answer</button>
     </form>
-    <div id="book-result"></div>
+    <div id="food-result"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
+      $("#zootopia-pic").hide();
+      $("#zootopia-text").hide();
+      $("#food-pic").hide();
+      $("#food-text").hide();
+
       //Movie Question jQuery Code
       $("#movie-form").on("submit", function (event) {
         event.preventDefault();
@@ -61,24 +82,34 @@ Select ONE Additional Feature to Add
         var $answer = $("#movie-answer");
         var answer = $answer.val();
 
-        if (answer === "movie1") {
+        if (answer === "movie3") {
           $("#movie-result").text("YESSSS!");
+          $("#zootopia-pic").hide();
+          $("#zooropia-text").hide();
+          $("#zootopia-pic").slideDown(1000, function () {
+            $("#zootopia-text").fadeIn();
+          });
         } else {
           $("#movie-result").text("Try Again!");
         }
       });
 
       //Book Question jQuery Code
-      $("#book-form").on("submit", function (event) {
+      $("#food-form").on("submit", function (event) {
         event.preventDefault();
 
-        var $answer = $("#book-answer");
+        var $answer = $("#food-answer");
         var answer = $answer.val();
 
-        if (answer === "book1") {
-          $("#book-result").text("YESSSS!");
+        if (answer === "food3") {
+          $("#food-result").text("YESSSS!");
+          $("#food-pic").hide();
+          $("#food-text").hide();
+          $("#food-pic").slideDown(1000, function () {
+            $("#food-text").fadeIn();
+          });
         } else {
-          $("#book-result").text("Try Again!");
+          $("#food-result").text("Try Again!");
         }
       });
     </script>
